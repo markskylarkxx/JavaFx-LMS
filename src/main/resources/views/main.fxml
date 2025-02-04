@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.myjavafxapp.MainController">
+    <!-- Search Field -->
+    <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" promptText="Search by title or author"/>
+
+    <!-- Table View -->
+    <TableView fx:id="bookTable">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" />
+            <TableColumn fx:id="titleColumn" text="Title" />
+            <TableColumn fx:id="authorColumn" text="Author" />
+            <TableColumn fx:id="isbnColumn" text="ISBN" />
+            <TableColumn fx:id="publishedDateColumn" text="Published Date" />
+        </columns>
+    </TableView>
+
+    <!-- Form Fields (Adding/Updating Books) -->
+    <HBox spacing="10">
+        <TextField fx:id="idField" text="ID" />
+        <TextField fx:id="titleField" promptText="Title" />
+        <TextField fx:id="authorField" promptText="Author" />
+        <TextField fx:id="isbnField" promptText="ISBN" />
+        <TextField fx:id="publishedDate"  promptText="Published Date"/>
+    </HBox>
+
+    <!-- Buttons for Add, Update, Delete, Refresh -->
+    <HBox spacing="10">
+        <Button text="Add" onAction="#handleAdd" />
+        <Button text="Update" onAction="#handleUpdate" />
+        <Button text="Delete" onAction="#handleDelete" />
+        <Button text="Refresh" onAction="#handleRefresh" />
+    </HBox>
+
+    <!-- Pagination Controls (placed after the TableView) -->
+    <HBox spacing="10">
+        <Button text="Previous" onAction="#handlePreviousPage" />
+        <Label fx:id="pageLabel" text="Page 1" />
+        <Button text="Next" onAction="#handleNextPage" />
+    </HBox>
+
+    <!-- Pagination Controls -->
+    <HBox spacing="10">
+        <Pagination fx:id="pagination" />
+    </HBox>
+</VBox>
